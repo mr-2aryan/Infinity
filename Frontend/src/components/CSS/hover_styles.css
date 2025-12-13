@@ -1,0 +1,46 @@
+.bor {
+    border-radius: 10px !important;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.bor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.bor:hover img {
+    transform: scale(1.1);
+}
+
+.bor-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #d8d8da;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: bottom 0.7s ease-in-out;
+    opacity: 0.95;
+}
+
+.bor:hover .bor-overlay {
+    bottom: 0;
+}
+
+.bor-overlay h4 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.bor-overlay p {
+    color: #666;
+    font-size: 1.1rem;
+}
