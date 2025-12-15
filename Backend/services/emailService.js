@@ -119,17 +119,17 @@ const sendOrderConfirmation = async (orderData) => {
     };
 
     try {
-        // Send both emails
-        await transporter.sendMail(customerMailOptions);
-        console.log('Customer confirmation email sent');
-
-        await transporter.sendMail(adminMailOptions);
-        console.log('Admin notification email sent');
+        // Send both emails in parallel
+        await Promise.all([
+            transporter.sendMail(customerMailOptions).then(() => console.log('Customer confirmation email sent')),
+            transporter.sendMail(adminMailOptions).then(() => console.log('Admin notification email sent'))
+        ]);
 
         return { success: true, message: 'Emails sent successfully' };
     } catch (error) {
         console.error('Email error:', error);
-        throw error;
+        // Don't throw here to prevent crashing the server if email fails in background
+        console.error('Failed to send confirmation emails');
     }
 };
 
