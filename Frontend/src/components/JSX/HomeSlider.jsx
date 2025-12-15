@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 const slider1 = "http://localhost:5000/images/homeslider1.jpg"
 const slider2 = "http://localhost:5000/images/homeslider2.jpg"
 const slider3 = "http://localhost:5000/images/homeslider3.jpg"
@@ -11,6 +11,14 @@ const HomeSlider = () => {
         { image: slider2, text: <>Timeless Elegance <br /> Just For You</> },
         { image: slider3, text: <>Timeless Elegance <br /> Just For You</> }
     ];
+
+    useEffect(() => {
+        const slideInterval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 3000);
+
+        return () => clearInterval(slideInterval);
+    }, [slides.length]);
 
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % slides.length);
