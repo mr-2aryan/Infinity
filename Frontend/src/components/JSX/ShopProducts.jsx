@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { BsGrid3X3GapFill } from "react-icons/bs";
-import { FaThLarge, FaList } from "react-icons/fa";
+import { TfiLayoutGrid4 } from "react-icons/tfi";
+import { FaThLarge, FaTh } from "react-icons/fa";
 import Dropdown from 'react-bootstrap/Dropdown';
 import SingleProduct from './SingleProduct';
 import axios from 'axios';
@@ -62,13 +62,13 @@ const ShopProducts = () => {
                 <div className='col-lg-6 col-12'>
                     <div className='d-flex gap-3'>
                         <div className={`view-icon ${activeView === 1 ? 'active' : ''}`} onClick={() => handleViewChange(1, 'col-lg-3 col-12')}>
-                            <BsGrid3X3GapFill size={20} />
+                            <TfiLayoutGrid4 size={20} />
                         </div>
                         <div className={`view-icon ${activeView === 2 ? 'active' : ''}`} onClick={() => handleViewChange(2, 'col-lg-4 col-12')}>
-                            <FaThLarge size={20} />
+                            <FaTh size={20} />
                         </div>
                         <div className={`view-icon ${activeView === 3 ? 'active' : ''}`} onClick={() => handleViewChange(3, 'col-lg-6 col-12')}>
-                            <FaList size={20} />
+                            <FaThLarge size={20} />
                         </div>
                     </div>
                 </div>
