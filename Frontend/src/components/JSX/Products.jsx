@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { FaBug } from "react-icons/fa";
 import SingleProduct from './SingleProduct'
+import ErrorOverlay from './ErrorOverlay';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -12,11 +15,14 @@ const Products = () => {
                 setProducts(data);
             } catch (error) {
                 console.error('Error fetching products:', error);
+                setError(true);
             }
         };
 
         fetchProducts();
     }, []);
+
+    if (error) return <ErrorOverlay />;
 
     return (
         <div className='container my-5'>

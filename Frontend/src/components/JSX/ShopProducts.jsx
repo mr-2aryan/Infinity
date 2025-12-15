@@ -4,6 +4,7 @@ import { FaThLarge, FaTh } from "react-icons/fa";
 import Dropdown from 'react-bootstrap/Dropdown';
 import SingleProduct from './SingleProduct';
 import axios from 'axios';
+import ErrorOverlay from './ErrorOverlay';
 
 const ShopProducts = () => {
     const [products, setProducts] = useState([]);
@@ -56,6 +57,8 @@ const ShopProducts = () => {
         }
     }
 
+    if (error) return <ErrorOverlay />;
+
     return (
         <div className='container mt-5'>
             <div className='row py-5 align-items-center'>
@@ -87,17 +90,12 @@ const ShopProducts = () => {
                     </Dropdown>
                 </div>
             </div>
-            {error ? (
-                <div className="text-center py-5 text-danger">
-                    <h3>{error}</h3>
-                </div>
-            ) : (
-                <div className='row g-4 mb-5'>
-                    {products.map((item, index) => (
-                        <SingleProduct key={index} id={item.id} img1={item.img1} img2={item.img2} name={item.name} price={item.price} discount={item.discount} originalPrice={item.original_price} colClass={colClass} />
-                    ))}
-                </div>
-            )}
+
+            <div className='row g-4 mb-5'>
+                {products.map((item, index) => (
+                    <SingleProduct key={index} id={item.id} img1={item.img1} img2={item.img2} name={item.name} price={item.price} discount={item.discount} originalPrice={item.original_price} colClass={colClass} />
+                ))}
+            </div>
         </div>
     )
 }

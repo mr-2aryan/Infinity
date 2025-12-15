@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { FaBug } from "react-icons/fa";
 import ProductDetail from '../components/JSX/ProductDetail'
 import SingleProduct from '../components/JSX/SingleProduct'
 import TopShop from '../components/JSX/TopShop'
+import ErrorOverlay from '../components/JSX/ErrorOverlay';
 
 const View = () => {
     const { id } = useParams();
@@ -32,7 +34,7 @@ const View = () => {
         window.scrollTo(0, 0);
     }, [id])
 
-    if (error) return <div className="text-center py-5 text-danger"><h3>{error}</h3></div>
+    if (error) return <ErrorOverlay />;
     if (!product) return <div className="text-center py-5">Loading...</div>
 
     return (
