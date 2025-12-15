@@ -2,7 +2,7 @@ import React from 'react';
 import { Offcanvas, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { closeCart, removeFromCart } from '../../redux/cartSlice';
+import { closeCart, removeFromCart, clearCart } from '../../redux/cartSlice';
 import { FaShoppingCart, FaTrash, FaTimes } from 'react-icons/fa';
 
 const CartSidebar = () => {
@@ -69,6 +69,13 @@ const CartSidebar = () => {
                                     <span className="fw-bold">Subtotal:</span>
                                     <span className="fw-bold fs-5">${calculateSubtotal()}</span>
                                 </div>
+                                <Button
+                                    variant="outline-danger"
+                                    className="w-100 py-2 mb-2 rounded-0 fw-bold text-uppercase"
+                                    onClick={() => dispatch(clearCart())}
+                                >
+                                    Clear Cart
+                                </Button>
                                 <Button variant="dark" className="w-100 py-3 rounded-0 fw-bold checkout-btn text-uppercase" onClick={() => { handleClose(); navigate('/checkout'); }}>
                                     Checkout
                                 </Button>
