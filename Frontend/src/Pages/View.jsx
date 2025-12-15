@@ -9,6 +9,7 @@ const View = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [relatedProducts, setRelatedProducts] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -23,6 +24,7 @@ const View = () => {
                 setRelatedProducts(related);
             } catch (err) {
                 console.log(err);
+                setError("Failed to load product. Please ensure the backend server is running.");
             }
         }
         fetchProduct();
@@ -30,6 +32,7 @@ const View = () => {
         window.scrollTo(0, 0);
     }, [id])
 
+    if (error) return <div className="text-center py-5 text-danger"><h3>{error}</h3></div>
     if (!product) return <div className="text-center py-5">Loading...</div>
 
     return (

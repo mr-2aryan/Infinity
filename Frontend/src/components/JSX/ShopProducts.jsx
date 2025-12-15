@@ -11,6 +11,7 @@ const ShopProducts = () => {
     const [colClass, setColClass] = useState('col-lg-3 col-12');
     const [activeView, setActiveView] = useState(1);
     const [sortOption, setSortOption] = useState("Sort by Popularity");
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -20,6 +21,7 @@ const ShopProducts = () => {
                 setOriginalProducts(res.data); // Save original data
             } catch (err) {
                 console.log(err);
+                setError("Failed to load products. Please check if the backend is running.");
             }
         }
         fetchProducts();
@@ -85,11 +87,17 @@ const ShopProducts = () => {
                     </Dropdown>
                 </div>
             </div>
-            <div className='row g-4 mb-5'>
-                {products.map((item, index) => (
-                    <SingleProduct key={index} id={item.id} img1={item.img1} img2={item.img2} name={item.name} price={item.price} discount={item.discount} originalPrice={item.original_price} colClass={colClass} />
-                ))}
-            </div>
+            {error ? (
+                <div className="text-center py-5 text-danger">
+                    <h3>{error}</h3>
+                </div>
+            ) : (
+                <div className='row g-4 mb-5'>
+                    {products.map((item, index) => (
+                        <SingleProduct key={index} id={item.id} img1={item.img1} img2={item.img2} name={item.name} price={item.price} discount={item.discount} originalPrice={item.original_price} colClass={colClass} />
+                    ))}
+                </div>
+            )}
         </div>
     )
 }

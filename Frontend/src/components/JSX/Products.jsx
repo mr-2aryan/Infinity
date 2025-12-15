@@ -30,6 +30,7 @@ const Products = () => {
                     products.map((product) => (
                         <SingleProduct
                             key={product.id}
+                            id={product.id}
                             img1={product.img1}
                             img2={product.img2}
                             name={product.name}
