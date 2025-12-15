@@ -5,7 +5,6 @@ import 'aos/dist/aos.css';
 import Layout from './components/JSX/Layout'
 import LoadingOverlay from './components/JSX/LoadingOverlay';
 
-// Lazy loading components
 const Home = React.lazy(() => import('./Pages/Home'));
 const Shop = React.lazy(() => import('./Pages/Shop'));
 const About = React.lazy(() => import('./Pages/About'));
