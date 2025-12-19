@@ -568,6 +568,175 @@ body {
     box-shadow: 0 0 0 1px #fdc402;
 }
 
+/* Search Overlay Styles */
+.search-overlay-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    animation: fadeInOverlay 0.4s ease-out;
+}
+
+.search-overlay-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 46, 38, 0.4);
+    /* brand primary color with transparency */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.search-overlay-content {
+    position: relative;
+    width: 100%;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    animation: slideDownOverlay 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.search-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.search-close-btn:hover {
+    transform: rotate(90deg);
+    color: #fdc402;
+}
+
+.search-input-section {
+    max-width: 800px;
+    margin: 0 auto;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.search-input-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-icon-large {
+    color: #fdc402;
+    font-size: 2rem;
+}
+
+.search-fullscreen-input {
+    width: 100%;
+    background: transparent !important;
+    border: none !important;
+    color: white !important;
+    font-size: 2.5rem;
+    font-weight: 300;
+    outline: none !important;
+}
+
+.search-fullscreen-input::placeholder {
+    color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.search-result-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+}
+
+.search-result-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    border-color: #fdc402;
+}
+
+.search-result-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.search-result-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.search-result-card:hover .search-result-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.search-result-info h6 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-result-info span {
+    color: #fdc402;
+    font-weight: 700;
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownOverlay {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Custom Scrollbar for Overlay */
+.search-overlay-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.search-overlay-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.search-overlay-content::-webkit-scrollbar-thumb {
+    background: #fdc402;
+    border-radius: 10px;
+}
+
 .text-white-50 {
     color: rgba(255, 255, 255, 0.5) !important;
 }
