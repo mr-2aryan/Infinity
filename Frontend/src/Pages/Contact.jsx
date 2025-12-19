@@ -40,7 +40,7 @@ const Contact = () => {
 
     return (
         <>
-            <Helmet>
+            <Helmet key="contact">
                 <title>Contact Us</title>
                 <meta name="description" content="Get in touch with us for any inquiries or support." />
             </Helmet>

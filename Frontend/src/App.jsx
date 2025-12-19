@@ -12,7 +12,6 @@ const View = React.lazy(() => import('./Pages/View'));
 const Contact = React.lazy(() => import('./Pages/Contact'));
 const Checkout = React.lazy(() => import('./Pages/Checkout'));
 const Confirmation = React.lazy(() => import('./Pages/Confirmation'));
-
 import { Helmet } from 'react-helmet-async';
 
 function App() {
@@ -27,10 +26,7 @@ function App() {
   return (
     <Suspense fallback={<LoadingOverlay />}>
       <SmoothScroll>
-        <Helmet>
-          <titleTemplate>%s | Infinity</titleTemplate>
-          <defaultTitle>Infinity</defaultTitle>
-        </Helmet>
+        <Helmet />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />

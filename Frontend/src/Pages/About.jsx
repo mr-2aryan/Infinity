@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 const About = () => {
     return (
         <>
-            <Helmet>
+            <Helmet key="about">
                 <title>About Us</title>
                 <meta name="description" content="Learn about our story, mission, and commitment to sustainable design." />
             </Helmet>

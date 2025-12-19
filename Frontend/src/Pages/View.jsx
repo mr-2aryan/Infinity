@@ -38,7 +38,7 @@ const View = () => {
 
     return (
         <div>
-            <Helmet>
+            <Helmet key={`view-${product.id}`}>
                 <title>{product.name}</title>
                 <meta name="description" content={`Buy ${product.name} at Infinity.`} />
             </Helmet>

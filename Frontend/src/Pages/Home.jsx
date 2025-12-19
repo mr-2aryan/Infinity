@@ -14,7 +14,7 @@ import { Helmet } from 'react-helmet-async';
 const Home = () => {
     return (
         <>
-            <Helmet>
+            <Helmet key="home">
                 <title>Home</title>
                 <meta name="description" content="Welcome to Infinity - Your destination for premium, sustainable furniture." />
             </Helmet>
