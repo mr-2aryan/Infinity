@@ -4,8 +4,11 @@ import LoadingOverlay from '../components/JSX/LoadingOverlay'
 import TopShop from '../components/JSX/TopShop'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
+import { useDispatch } from 'react-redux';
+import { showNotification } from '../redux/cartSlice';
 
 const Contact = () => {
+    const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -24,11 +27,11 @@ const Contact = () => {
 
         try {
             await axios.post('http://localhost:5000/api/contact', formData);
-            alert('Message sent successfully! We will get back to you soon.');
+            dispatch(showNotification('Message sent successfully! We will get back to you soon.'));
             setFormData({ name: '', email: '', subject: '', message: '' });
         } catch (error) {
             console.error('Contact error:', error);
-            alert('Failed to send message. Please try again.');
+            dispatch(showNotification('Failed to send message. Please try again.'));
         } finally {
             setLoading(false);
         }

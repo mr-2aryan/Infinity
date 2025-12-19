@@ -550,3 +550,24 @@ body {
         opacity: 1;
     }
 }
+
+/* Footer Styles */
+.hover-white:hover {
+    color: white !important;
+    transition: 0.3s;
+}
+
+.f-hover:hover {
+    color: #fdc402 !important;
+    transition: 0.3s;
+}
+
+.footer-newsletter-input:focus {
+    border-color: #fdc402 !important;
+    outline: none;
+    box-shadow: 0 0 0 1px #fdc402;
+}
+
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.5) !important;
+}

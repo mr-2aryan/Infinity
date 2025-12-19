@@ -88,6 +88,134 @@ const About = () => {
                         </Col>
                     </Row>
                 </div>
+
+                {/* Our Process Section */}
+                <div className="mb-5 py-5">
+                    <Row className="flex-lg-row-reverse align-items-center">
+                        <Col lg={6} className="mb-4 mb-lg-0">
+                            <img
+                                src="http://localhost:5000/images/homeslider3.jpg"
+                                alt="Our Process"
+                                className="img-fluid rounded shadow-sm"
+                                style={{ objectFit: 'cover', height: '400px', width: '100%' }}
+                            />
+                        </Col>
+                        <Col lg={6}>
+                            <h2 className="fw-bold mb-4">Craftsmanship Process</h2>
+                            <div className="d-flex mb-4">
+                                <div className="me-3">
+                                    <div className="bg-dark text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style={{ width: '40px', height: '40px' }}>1</div>
+                                </div>
+                                <div>
+                                    <h5 className="fw-bold">Design & Sketching</h5>
+                                    <p className="text-muted">Every piece starts as an idea. Our designers painstakingly sketch prototypes to ensure perfect proportions.</p>
+                                </div>
+                            </div>
+                            <div className="d-flex mb-4">
+                                <div className="me-3">
+                                    <div className="bg-dark text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style={{ width: '40px', height: '40px' }}>2</div>
+                                </div>
+                                <div>
+                                    <h5 className="fw-bold">Material Selection</h5>
+                                    <p className="text-muted">We travel globally to ethically source hardwoods, premium fabrics, and sustainable components.</p>
+                                </div>
+                            </div>
+                            <div className="d-flex">
+                                <div className="me-3">
+                                    <div className="bg-dark text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style={{ width: '40px', height: '40px' }}>3</div>
+                                </div>
+                                <div>
+                                    <h5 className="fw-bold">Handcrafted Assembly</h5>
+                                    <p className="text-muted">Master artisans assemble each piece by hand, ensuring a level of detail machines simply can't match.</p>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                </div>
+
+                {/* Testimonials Section */}
+                <div className="bg-light p-5 rounded-3 mb-5">
+                    <h2 className="fw-bold text-center mb-5">What Our Clients Say</h2>
+                    <Row className="g-4">
+                        <Col md={6}>
+                            <Card className="h-100 border-0 p-4">
+                                <Card.Body>
+                                    <div className="mb-3 text-warning">★★★★★</div>
+                                    <p className="card-text text-muted fst-italic">"The quality of the furniture is absolutely stunning. It completely transformed my living room. Customer support was incredibly helpful throughout the process."</p>
+                                    <div className="d-flex align-items-center mt-4">
+                                        <div className="bg-secondary rounded-circle" style={{ width: '50px', height: '50px' }}></div>
+                                        <div className="ms-3">
+                                            <h6 className="fw-bold mb-0">Sarah Jenkins</h6>
+                                            <small className="text-muted">Interior Designer</small>
+                                        </div>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col md={6}>
+                            <Card className="h-100 border-0 p-4">
+                                <Card.Body>
+                                    <div className="mb-3 text-warning">★★★★★</div>
+                                    <p className="card-text text-muted fst-italic">"I was hesitant to buy furniture online, but Infinity surpassed all expectations. The delivery was fast, and the packaging ensured everything arrived perfectly."</p>
+                                    <div className="d-flex align-items-center mt-4">
+                                        <div className="bg-secondary rounded-circle" style={{ width: '50px', height: '50px' }}></div>
+                                        <div className="ms-3">
+                                            <h6 className="fw-bold mb-0">Michael Chen</h6>
+                                            <small className="text-muted">Architect</small>
+                                        </div>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
+
+                {/* FAQ Section */}
+                <div className="mb-5">
+                    <h2 className="fw-bold text-center mb-5">Frequently Asked Questions</h2>
+                    <Row className="justify-content-center">
+                        <Col lg={8}>
+                            <div className="accordion" id="faqAccordion">
+                                <div className="accordion-item border-0 mb-3 shadow-sm rounded">
+                                    <h2 className="accordion-header">
+                                        <button className="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                            Do you offer international shipping?
+                                        </button>
+                                    </h2>
+                                    <div id="faq1" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div className="accordion-body text-muted">
+                                            Yes, we ship to over 50 countries worldwide. Shipping costs and times vary depending on the destination.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="accordion-item border-0 mb-3 shadow-sm rounded">
+                                    <h2 className="accordion-header">
+                                        <button className="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                            What is your return policy?
+                                        </button>
+                                    </h2>
+                                    <div id="faq2" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div className="accordion-body text-muted">
+                                            We offer a 30-day return policy for all items in their original condition. Please verify the dimensions before placing an order.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="accordion-item border-0 mb-3 shadow-sm rounded">
+                                    <h2 className="accordion-header">
+                                        <button className="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                            Do you offer warranty on your products?
+                                        </button>
+                                    </h2>
+                                    <div id="faq3" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div className="accordion-body text-muted">
+                                            Yes, all our furniture comes with a 1-year manufacturing warranty covering structural defects.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                </div>
             </Container>
         </>
     )
