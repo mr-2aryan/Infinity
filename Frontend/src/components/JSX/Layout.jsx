@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import Navbr from './Navbr'
 import Footer from './Footer'
 import CartSidebar from './CartSidebar'
+import ToastNotification from './ToastNotification'
 
 const Layout = () => {
     const location = useLocation();
@@ -11,6 +12,7 @@ const Layout = () => {
         <>
             <Navbr key={location.pathname} />
             <CartSidebar />
+            <ToastNotification />
             <Outlet />
             <Footer />
         </>

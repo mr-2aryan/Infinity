@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { addToCart, openCart } from '../../redux/cartSlice';
+import { addToCart, showNotification } from '../../redux/cartSlice';
 
 const SingleProduct = ({ id, img1, img2, name, price, originalPrice, discount, colClass = "col-lg-3 col-12" }) => {
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const SingleProduct = ({ id, img1, img2, name, price, originalPrice, discount, c
             quantity: 1
         };
         dispatch(addToCart(product));
-        dispatch(openCart());
+        dispatch(showNotification(`${name} has been added to your cart!`));
     };
 
     return (

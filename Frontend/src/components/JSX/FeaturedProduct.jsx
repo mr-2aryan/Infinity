@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addToCart, openCart } from '../../redux/cartSlice';
+import { addToCart, showNotification } from '../../redux/cartSlice';
 const Accent = "http://localhost:5000/images/accent.webp"
 const Accent2 = "http://localhost:5000/images/accent2.webp"
 
@@ -23,7 +23,7 @@ const FeaturedProduct = () => {
 
     const handleAddToCart = () => {
         dispatch(addToCart({ ...item, quantity: count }));
-        dispatch(openCart());
+        dispatch(showNotification(`${item.name} has been added to your cart!`));
     };
 
     const handleBuyNow = () => {

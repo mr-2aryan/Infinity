@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addToCart, openCart } from '../../redux/cartSlice';
+import { addToCart, showNotification } from '../../redux/cartSlice';
 
 const ProductDetail = ({ id, img1, img2, name, price, description = "Donec dapibus tellus sem, quis aliquam libero pharetra non. Nam vitae fermentum leo. Pellentesque bibendum dui eu mi tempor sodales.", originalPrice, discount }) => {
     const [count, setCount] = useState(1);
@@ -20,7 +20,7 @@ const ProductDetail = ({ id, img1, img2, name, price, description = "Donec dapib
             quantity: count
         };
         dispatch(addToCart(item));
-        dispatch(openCart());
+        dispatch(showNotification(`${name} has been added to your cart!`));
     };
 
     const handleBuyNow = () => {
