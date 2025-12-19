@@ -31,8 +31,6 @@ const View = () => {
             }
         }
         fetchProduct();
-        // Scroll to top when view changes
-        window.scrollTo(0, 0);
     }, [id])
 
     if (error) return <ErrorOverlay />;

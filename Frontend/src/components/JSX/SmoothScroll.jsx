@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
+import { useLocation } from 'react-router-dom';
 
 const SmoothScroll = ({ children }) => {
     const lenisRef = useRef(null);
+    const { pathname } = useLocation();
 
     useEffect(() => {
         // Initialize Lenis
@@ -33,6 +35,12 @@ const SmoothScroll = ({ children }) => {
             lenis.destroy();
         };
     }, []);
+
+    useEffect(() => {
+        if (lenisRef.current) {
+            lenisRef.current.scrollTo(0, { immediate: true });
+        }
+    }, [pathname]);
 
     return <>{children}</>;
 };
