@@ -6,6 +6,7 @@ import ProductDetail from '../components/JSX/ProductDetail'
 import SingleProduct from '../components/JSX/SingleProduct'
 import TopShop from '../components/JSX/TopShop'
 import ErrorOverlay from '../components/JSX/ErrorOverlay';
+import { Helmet } from 'react-helmet-async';
 
 const View = () => {
     const { id } = useParams();
@@ -39,6 +40,10 @@ const View = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>{`Infinity | ${product.name}`}</title>
+                <meta name="description" content={`Buy ${product.name} at Infinity.`} />
+            </Helmet>
             <TopShop title="PRODUCT VIEW" pageName="VIEW" />
 
             <ProductDetail

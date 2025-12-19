@@ -6,6 +6,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
 import { useDispatch } from 'react-redux';
 import { showNotification } from '../redux/cartSlice';
+import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
     const dispatch = useDispatch();

@@ -9,10 +9,15 @@ import HomePictures from '../components/JSX/HomePictures'
 import FeaturedProduct from '../components/JSX/FeaturedProduct'
 import Main from '../components/JSX/Main'
 import Accordions from '../components/JSX/Accordions'
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
         <>
+            <Helmet>
+                <title>Infinity | Home</title>
+                <meta name="description" content="Welcome to Infinity - Your destination for premium, sustainable furniture." />
+            </Helmet>
             <HomeSlider />
             <Eco />
             <Commitment />

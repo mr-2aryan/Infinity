@@ -1,10 +1,15 @@
 import React from 'react'
 import TopShop from '../components/JSX/TopShop'
 import { Container, Row, Col, Card } from 'react-bootstrap'
+import { Helmet } from 'react-helmet-async';
 
 const About = () => {
     return (
         <>
+            <Helmet>
+                <title>Infinity | About Us</title>
+                <meta name="description" content="Learn about our story, mission, and commitment to sustainable design." />
+            </Helmet>
             <TopShop title="ABOUT US" pageName="ABOUT" />
 
             <Container className="my-5 py-5">
