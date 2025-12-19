@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <>
             <Helmet>
-                <title>Infinity | Home</title>
+                <title>Home</title>
                 <meta name="description" content="Welcome to Infinity - Your destination for premium, sustainable furniture." />
             </Helmet>
             <HomeSlider />

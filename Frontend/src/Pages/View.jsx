@@ -39,7 +39,7 @@ const View = () => {
     return (
         <div>
             <Helmet>
-                <title>{`Infinity | ${product.name}`}</title>
+                <title>{product.name}</title>
                 <meta name="description" content={`Buy ${product.name} at Infinity.`} />
             </Helmet>
             <TopShop title="PRODUCT VIEW" pageName="VIEW" />

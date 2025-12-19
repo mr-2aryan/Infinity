@@ -7,7 +7,7 @@ const About = () => {
     return (
         <>
             <Helmet>
-                <title>Infinity | About Us</title>
+                <title>About Us</title>
                 <meta name="description" content="Learn about our story, mission, and commitment to sustainable design." />
             </Helmet>
             <TopShop title="ABOUT US" pageName="ABOUT" />

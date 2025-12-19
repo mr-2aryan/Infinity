@@ -7,7 +7,7 @@ const Shop = () => {
     return (
         <>
             <Helmet>
-                <title>Infinity | Shop</title>
+                <title>Shop</title>
                 <meta name="description" content="Browse our exclusive collection of high-quality furniture." />
             </Helmet>
             <TopShop />

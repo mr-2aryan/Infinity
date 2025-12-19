@@ -40,6 +40,10 @@ const Contact = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Contact Us</title>
+                <meta name="description" content="Get in touch with us for any inquiries or support." />
+            </Helmet>
             <TopShop title="CONTACT US" pageName="CONTACT" />
             {loading && <LoadingOverlay />}
 
