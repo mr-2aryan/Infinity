@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Layout from './components/JSX/Layout'
 import LoadingOverlay from './components/JSX/LoadingOverlay';
+import SmoothScroll from './components/JSX/SmoothScroll';
 
 const Home = React.lazy(() => import('./Pages/Home'));
 const Shop = React.lazy(() => import('./Pages/Shop'));
@@ -24,17 +25,19 @@ function App() {
 
   return (
     <Suspense fallback={<LoadingOverlay />}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/confirmation" element={<Confirmation />} />
-          <Route path="/view/:id" element={<View />} />
-        </Route>
-      </Routes>
+      <SmoothScroll>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/confirmation" element={<Confirmation />} />
+            <Route path="/view/:id" element={<View />} />
+          </Route>
+        </Routes>
+      </SmoothScroll>
     </Suspense>
   )
 }
