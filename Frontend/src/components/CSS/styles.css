@@ -188,12 +188,15 @@ body {
 }
 
 .hp-img-box img {
-    transition: filter 0.4s ease-in-out;
+    transition: filter 0.4s ease-in-out, transform 0.7s ease-in-out;
     width: 100%;
+    aspect-ratio: 3/3;
+    object-fit: cover;
 }
 
 .hp-img-box:hover img {
-    filter: blur(10px);
+    filter: blur(6px);
+    transform: scale(1.1);
 }
 
 .hp-overlay {
@@ -363,14 +366,18 @@ body {
 
 /* Accordion Customization */
 .accordion-button:not(.collapsed) {
-    color: black;
-    background-color: transparent;
+    color: white !important;
+    background-color: #0f2e26 !important;
     box-shadow: none;
+    --bs-accordion-active-bg: #0f2e26;
+    --bs-accordion-active-color: white;
+    --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .accordion-button:focus {
-    box-shadow: none;
-    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: none !important;
+    border-color: transparent !important;
+    outline: none !important;
 }
 
 .accordion-button::after {
@@ -379,7 +386,7 @@ body {
 }
 
 .accordion-button:not(.collapsed)::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
     transform: rotate(-180deg);
 }
 
@@ -429,7 +436,7 @@ body {
 .view-icon {
     width: 40px;
     height: 40px;
-    background-color: black;
+    background-color: #0f2e26;
     color: white;
     display: flex;
     align-items: center;
@@ -483,6 +490,16 @@ body {
 .sort-toggle::after {
     margin-left: auto;
     /* Push caret to the right */
+}
+
+/* Fix for Sort Dropdown splitting */
+.sort-toggle[aria-expanded="true"] {
+    border-bottom: none !important;
+}
+
+.sort-toggle[aria-expanded="true"]+.dropdown-menu {
+    border-top: none !important;
+    margin-top: -2px !important;
 }
 
 /* Loading Overlay Styles */

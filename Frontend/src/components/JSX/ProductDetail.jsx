@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addToCart, showNotification } from '../../redux/cartSlice';
 
+import ZoomableImage from './ZoomableImage';
+
 const ProductDetail = ({ id, img1, img2, name, price, description = "Donec dapibus tellus sem, quis aliquam libero pharetra non. Nam vitae fermentum leo. Pellentesque bibendum dui eu mi tempor sodales.", originalPrice, discount }) => {
     const [count, setCount] = useState(1);
     const dispatch = useDispatch();
@@ -40,12 +42,12 @@ const ProductDetail = ({ id, img1, img2, name, price, description = "Donec dapib
             <div className='row align-items-center justify-content-center'>
                 <div className='col-lg-4 col-12'>
                     <div className='imag-bg'>
-                        <img src={img1} alt={name} className='img-fluid w-100' />
+                        <ZoomableImage src={img1} alt={name} className='img-fluid w-100' />
                     </div>
                 </div>
                 <div className='col-lg-4 col-12'>
                     <div className='imag-bg'>
-                        <img src={img2} alt={name} className='img-fluid w-100' />
+                        <ZoomableImage src={img2} alt={name} className='img-fluid w-100' />
                     </div>
                 </div>
                 <div className='col-lg-4 col-12'>

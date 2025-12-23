@@ -1,6 +1,6 @@
 import React from 'react'
 const Green = "http://localhost:5000/images/green_sofa.jpg"
-const Green2 = "http://localhost:5000/images/green2.webp"
+const Green2 = "http://localhost:5000/images/green2.jpg"
 
 const HomePictures = () => {
     return (
@@ -18,7 +18,7 @@ const HomePictures = () => {
                 </div>
                 <div className='col-lg-6'>
                     <div className='hp-img-box'>
-                        <img src={Green2} alt="green_sofa" className='img-fluid rounded' width={"98%"} />
+                        <img src={Green2} alt="green_sofa" className='img-fluid rounded' />
                         <div className='hp-overlay'>
                             <p className='fs-5 mb-1'>Best Seller</p>
                             <h3 className='fw-bold'>Modern Chair</h3>
