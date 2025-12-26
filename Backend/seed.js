@@ -14,7 +14,8 @@ const seedDatabase = async () => {
                 original_price VARCHAR(50),
                 discount VARCHAR(50),
                 img1 VARCHAR(255),
-                img2 VARCHAR(255)
+                img2 VARCHAR(255),
+                quantity INTEGER DEFAULT 50
             );
         `);
         console.log("Table created successfully");
@@ -154,8 +155,8 @@ const seedDatabase = async () => {
 
         for (const product of products) {
             await pool.query(
-                'INSERT INTO products (name, price, original_price, discount, img1, img2) VALUES ($1, $2, $3, $4, $5, $6)',
-                [product.name, product.price, product.original_price, product.discount, product.img1, product.img2]
+                'INSERT INTO products (name, price, original_price, discount, img1, img2, quantity) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+                [product.name, product.price, product.original_price, product.discount, product.img1, product.img2, 50]
             );
         }
         console.log("Data inserted successfully");

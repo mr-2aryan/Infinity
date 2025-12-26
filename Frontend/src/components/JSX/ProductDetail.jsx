@@ -5,7 +5,7 @@ import { addToCart, showNotification } from '../../redux/cartSlice';
 
 import ZoomableImage from './ZoomableImage';
 
-const ProductDetail = ({ id, img1, img2, name, price, description = "Donec dapibus tellus sem, quis aliquam libero pharetra non. Nam vitae fermentum leo. Pellentesque bibendum dui eu mi tempor sodales.", originalPrice, discount }) => {
+const ProductDetail = ({ id, img1, img2, name, price, description = "Donec dapibus tellus sem, quis aliquam libero pharetra non. Nam vitae fermentum leo. Pellentesque bibendum dui eu mi tempor sodales.", originalPrice, discount, quantity }) => {
     const [count, setCount] = useState(1);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -57,6 +57,9 @@ const ProductDetail = ({ id, img1, img2, name, price, description = "Donec dapib
                         {originalPrice && <h5 className='text-muted text-decoration-line-through'>{originalPrice}</h5>}
                         {discount && <span className='badge bg-warning text-dark'>{discount}</span>}
                     </div>
+                    <p className={`fw-semibold mb-2 ${quantity > 0 ? 'text-success' : 'text-danger'}`}>
+                        {quantity > 0 ? `${quantity} in stock` : 'Out of stock'}
+                    </p>
                     <p>{description}</p>
                     <div className='row align-items-center'>
                         <div className='col-4'>
