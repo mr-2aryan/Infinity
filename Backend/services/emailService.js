@@ -1,12 +1,28 @@
 const nodemailer = require('nodemailer');
 
-// Configure email transporter (using Gmail as example)
-// For production, use environment variables for credentials
+// Configure email transporter with connection pooling for faster emails
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'aryanshahid098@gmail.com',
         pass: 'yiul yjro ktxo pnpg'
+    },
+    // Enable connection pooling - keeps connection alive for faster subsequent emails
+    pool: true,
+    maxConnections: 5,
+    maxMessages: 100,
+    // Reduce connection timeouts
+    connectionTimeout: 5000,
+    greetingTimeout: 5000,
+    socketTimeout: 10000
+});
+
+// Verify transporter connection on startup (warms up the connection)
+transporter.verify((error, success) => {
+    if (error) {
+        console.error('Email transporter error:', error);
+    } else {
+        console.log('✅ Email server is ready to send messages');
     }
 });
 
