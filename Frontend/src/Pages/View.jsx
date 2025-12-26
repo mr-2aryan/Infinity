@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { FaBug } from "react-icons/fa";
 import ProductDetail from '../components/JSX/ProductDetail'
 import SingleProduct from '../components/JSX/SingleProduct'
 import TopShop from '../components/JSX/TopShop'
@@ -69,6 +68,7 @@ const View = () => {
                             price={item.price}
                             discount={item.discount}
                             originalPrice={item.original_price}
+                            quantity={item.quantity}
                             colClass="col-lg-3 col-12"
                         />
                     ))}

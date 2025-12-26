@@ -3,12 +3,19 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { addToCart, showNotification } from '../../redux/cartSlice';
 
-const SingleProduct = ({ id, img1, img2, name, price, originalPrice, discount, colClass = "col-lg-3 col-12" }) => {
+const SingleProduct = ({ id, img1, img2, name, price, originalPrice, discount, quantity, colClass = "col-lg-3 col-12" }) => {
     const dispatch = useDispatch();
 
     const handleAddToCart = (e) => {
         e.preventDefault();
         e.stopPropagation();
+
+        // Check if out of stock
+        if (quantity === 0) {
+            dispatch(showNotification(`Sorry, ${name} is out of stock!`));
+            return;
+        }
+
         const product = {
             id,
             name,

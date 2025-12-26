@@ -14,6 +14,16 @@ const ProductDetail = ({ id, img1, img2, name, price, description = "Donec dapib
     const decrement = () => setCount(prev => (prev > 1 ? prev - 1 : 1));
 
     const handleAddToCart = () => {
+        // Check if out of stock
+        if (quantity === 0) {
+            dispatch(showNotification(`Sorry, ${name} is out of stock!`));
+            return;
+        }
+        // Check if trying to add more than available
+        if (count > quantity) {
+            dispatch(showNotification(`Only ${quantity} items available in stock!`));
+            return;
+        }
         const item = {
             id,
             name,
@@ -26,6 +36,16 @@ const ProductDetail = ({ id, img1, img2, name, price, description = "Donec dapib
     };
 
     const handleBuyNow = () => {
+        // Check if out of stock
+        if (quantity === 0) {
+            dispatch(showNotification(`Sorry, ${name} is out of stock!`));
+            return;
+        }
+        // Check if trying to add more than available
+        if (count > quantity) {
+            dispatch(showNotification(`Only ${quantity} items available in stock!`));
+            return;
+        }
         const item = {
             id,
             name,

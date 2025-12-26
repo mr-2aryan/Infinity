@@ -93,7 +93,7 @@ const ShopProducts = () => {
 
             <div className='row g-4 mb-5'>
                 {products.map((item, index) => (
-                    <SingleProduct key={index} id={item.id} img1={item.img1} img2={item.img2} name={item.name} price={item.price} discount={item.discount} originalPrice={item.original_price} colClass={colClass} />
+                    <SingleProduct key={index} id={item.id} img1={item.img1} img2={item.img2} name={item.name} price={item.price} discount={item.discount} originalPrice={item.original_price} quantity={item.quantity} colClass={colClass} />
                 ))}
             </div>
         </div>
