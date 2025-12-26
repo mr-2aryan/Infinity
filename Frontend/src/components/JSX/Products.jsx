@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { FaBug } from "react-icons/fa";
 import SingleProduct from './SingleProduct'
 import ErrorOverlay from './ErrorOverlay';
 

@@ -1,6 +1,5 @@
 import React from 'react'
 const Bed = "http://localhost:5000/images/bed.jpg"
-import { BsArrowRight } from "react-icons/bs";
 const Chair = "http://localhost:5000/images/chair.jpg"
 const Desk = "http://localhost:5000/images/desk.webp"
 import '../CSS/hover_styles.css'

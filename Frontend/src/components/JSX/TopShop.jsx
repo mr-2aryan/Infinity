@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const TopShop = ({ title = "SHOP", pageName = "SHOP" }) => {
     return (
-        <div className='position-relative'>
+        <div className='position-relative' data-aos="fade-up">
             <img src={Top} alt="" className='w-100 img-fluid' />
             <div className='position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center gap-2'>
                 <h3 className='fw-bold text-black mb-0'>{title}</h3>

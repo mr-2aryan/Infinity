@@ -10,7 +10,14 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
           ui: ['react-bootstrap', 'react-icons', 'aos'],
+          redux: ['@reduxjs/toolkit', 'react-redux'],
         },
+      },
+    },
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
       },
     },
   },

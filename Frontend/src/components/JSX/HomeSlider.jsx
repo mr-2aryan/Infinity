@@ -29,7 +29,7 @@ const HomeSlider = () => {
     };
 
     return (
-        <div className='position-relative w-100 slider-container'>
+        <div className='position-relative w-100 slider-container' data-aos="fade-up">
             {slides.map((slide, index) => (
                 <div
                     key={index}
