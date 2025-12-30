@@ -48,7 +48,7 @@ const Contact = () => {
             {loading && <LoadingOverlay />}
 
             <Container className="my-5 py-5">
-                <Row className="g-5">
+                <Row className="g-5 mb-5">
                     {/* Contact Form Section */}
                     <Col lg={7}>
                         <h2 className="fw-bold mb-4">Get In Touch</h2>
@@ -173,6 +173,39 @@ const Contact = () => {
                         </div>
                     </Col>
                 </Row>
+
+                {/* Support FAQ Section */}
+                <div className="row justify-content-center">
+                    <div className="col-lg-8">
+                        <h3 className="fw-bold text-center mb-4">Support Questions</h3>
+                        <div className="accordion" id="supportAccordion">
+                            <div className="accordion-item border-0 mb-3 shadow-sm rounded">
+                                <h2 className="accordion-header">
+                                    <button className="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#support1">
+                                        How can I track my order?
+                                    </button>
+                                </h2>
+                                <div id="support1" className="accordion-collapse collapse" data-bs-parent="#supportAccordion">
+                                    <div className="accordion-body text-muted">
+                                        Once your order ships, you will receive an email with a tracking number and a link to track your package.
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="accordion-item border-0 mb-3 shadow-sm rounded">
+                                <h2 className="accordion-header">
+                                    <button className="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#support2">
+                                        Can I change my shipping address?
+                                    </button>
+                                </h2>
+                                <div id="support2" className="accordion-collapse collapse" data-bs-parent="#supportAccordion">
+                                    <div className="accordion-body text-muted">
+                                        If your order hasn't shipped yet, please contact our support team immediately to update your address.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </Container>
         </>
     )

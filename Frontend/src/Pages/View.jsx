@@ -5,6 +5,7 @@ import ProductDetail from '../components/JSX/ProductDetail'
 import SingleProduct from '../components/JSX/SingleProduct'
 import TopShop from '../components/JSX/TopShop'
 import ErrorOverlay from '../components/JSX/ErrorOverlay';
+import Breadcrumbs from '../components/JSX/Breadcrumbs';
 import { Helmet } from 'react-helmet-async';
 
 const View = () => {
@@ -42,6 +43,16 @@ const View = () => {
                 <meta name="description" content={`Buy ${product.name} at Infinity.`} />
             </Helmet>
             <TopShop title="PRODUCT VIEW" pageName="VIEW" />
+
+            <div className="container mt-4">
+                <Breadcrumbs
+                    paths={[
+                        { name: 'Home', url: '/' },
+                        { name: 'Shop', url: '/shop' },
+                        { name: product.name, url: '#' }
+                    ]}
+                />
+            </div>
 
             <ProductDetail
                 id={product.id}

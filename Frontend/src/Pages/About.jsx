@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import TopShop from '../components/JSX/TopShop'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import { Helmet } from 'react-helmet-async';
+import { FaUserFriends, FaTrophy, FaSmile } from 'react-icons/fa';
+
+// Simple Counter Component
+const Counter = ({ end, duration = 2000 }) => {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        let startTime = null;
+        const animate = (currentTime) => {
+            if (!startTime) startTime = currentTime;
+            const progress = currentTime - startTime;
+            const percentage = Math.min(progress / duration, 1);
+            setCount(Math.floor(percentage * end));
+
+            if (progress < duration) {
+                requestAnimationFrame(animate);
+            }
+        };
+        requestAnimationFrame(animate);
+    }, [end, duration]);
+
+    return <span>{count}</span>;
+}
 
 const About = () => {
     return (
@@ -34,12 +57,53 @@ const About = () => {
                     </Col>
                 </Row>
 
+                {/* Animated Stats Section - NEW */}
+                <div className="primary-color-bg text-white rounded p-5 mb-5">
+                    <Row className="text-center g-4">
+                        <Col md={4} className="border-end border-secondary">
+                            <h1 className="fw-bold text-warning display-4"><Counter end={5000} />+</h1>
+                            <p className="mb-0 text-uppercase letter-spacing-2">Happy Clients</p>
+                        </Col>
+                        <Col md={4} className="border-end border-secondary">
+                            <h1 className="fw-bold text-warning display-4"><Counter end={120} /></h1>
+                            <p className="mb-0 text-uppercase letter-spacing-2">Awards Won</p>
+                        </Col>
+                        <Col md={4}>
+                            <h1 className="fw-bold text-warning display-4"><Counter end={15} /></h1>
+                            <p className="mb-0 text-uppercase letter-spacing-2">Years Experience</p>
+                        </Col>
+                    </Row>
+                </div>
+
                 {/* Our Mission Section */}
                 <div className="bg-light p-5 rounded-3 mb-5 text-center">
                     <h2 className="fw-bold mb-3">Our Mission</h2>
                     <p className="lead text-muted mx-auto" style={{ maxWidth: '800px' }}>
                         "To inspire and create beautiful living spaces with furniture that blends form, function, and sustainability, accessible to everyone."
                     </p>
+                </div>
+
+                {/* Team Section - NEW */}
+                <div className="mb-5 text-center">
+                    <h2 className="fw-bold mb-5">Meet Our Team</h2>
+                    <Row className="g-4">
+                        {[
+                            { name: "John Deo", role: "Founder & CEO", img: "https://randomuser.me/api/portraits/men/1.jpg" },
+                            { name: "Sarah Smith", role: "Head of Design", img: "https://randomuser.me/api/portraits/women/2.jpg" },
+                            { name: "Mike Ross", role: "Marketing Director", img: "https://randomuser.me/api/portraits/men/3.jpg" },
+                            { name: "Emily Blunt", role: "Lead Architect", img: "https://randomuser.me/api/portraits/women/4.jpg" }
+                        ].map((member, idx) => (
+                            <Col md={3} sm={6} key={idx}>
+                                <div className="team-card position-relative overflow-hidden rounded shadow-sm">
+                                    <img src={member.img} alt={member.name} className="img-fluid w-100" style={{ height: '300px', objectFit: 'cover' }} />
+                                    <div className="team-overlay position-absolute bottom-0 start-0 w-100 p-3 text-white" style={{ background: 'linear-gradient(transparent, rgba(0,0,0,0.8))' }}>
+                                        <h5 className="fw-bold mb-0">{member.name}</h5>
+                                        <small className="text-warning">{member.role}</small>
+                                    </div>
+                                </div>
+                            </Col>
+                        ))}
+                    </Row>
                 </div>
 
                 {/* Why Choose Us Section */}
