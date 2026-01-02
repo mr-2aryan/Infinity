@@ -47,7 +47,7 @@ const Navbr = () => {
                         </li>
                     </ul>
                     <div className="d-flex align-items-center gap-3">
-                        <div className="icon-link pointer text-white" onClick={() => setIsSearchOpen(true)}>
+                        <div className="icon-link pointer text-white me-2" onClick={() => setIsSearchOpen(true)}>
                             <FaSearch size={20} className='icon-hover' />
                         </div>
                         <div className="icon-link pointer position-relative text-white" onClick={() => dispatch(openCart())}>
