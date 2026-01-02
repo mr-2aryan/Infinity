@@ -25,8 +25,7 @@ const View = () => {
                 // Filter out current product for standard Related Products
                 const related = allProducts.filter(p => p.id !== parseInt(id)).slice(0, 4);
                 setRelatedProducts(related);
-            } catch (err) {
-                console.log(err);
+            } catch {
                 setError("Failed to load product. Please ensure the backend server is running.");
             }
         }

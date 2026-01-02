@@ -33,8 +33,7 @@ const ShopProducts = () => {
                 setProducts(productsWithCats);
                 setOriginalProducts(productsWithCats);
                 setFilteredProducts(productsWithCats);
-            } catch (err) {
-                console.log(err);
+            } catch {
                 setError("Failed to load products. Please check if the backend is running.");
             }
         }

@@ -9,7 +9,6 @@ const CartSidebar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { items, showCart, totalQuantity } = useSelector(state => state.cart);
-    console.log('CartSidebar State:', { showCart, totalQuantity, itemsCount: items.length });
 
     const handleClose = () => dispatch(closeCart());
 

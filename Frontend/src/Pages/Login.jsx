@@ -16,7 +16,6 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    console.log('Login component rendered');
 
     const handleLogin = () => {
         // Change credentials here

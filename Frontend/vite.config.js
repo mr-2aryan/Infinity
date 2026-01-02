@@ -18,7 +18,15 @@ export default defineConfig({
     terserOptions: {
       compress: {
         drop_console: true,
+        drop_debugger: true,
       },
     },
+    sourcemap: false,
+    chunkSizeWarningLimit: 500,
+    cssCodeSplit: true,
+    assetsInlineLimit: 4096,
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom', '@reduxjs/toolkit', 'react-redux'],
   },
 })
