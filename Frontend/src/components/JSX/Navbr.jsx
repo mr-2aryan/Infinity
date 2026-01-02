@@ -1,17 +1,24 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { FaSearch, FaShoppingCart } from 'react-icons/fa'
+import { FaSearch, FaShoppingCart, FaSignOutAlt } from 'react-icons/fa'
 import { BiInfinite } from "react-icons/bi";
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { openCart } from '../../redux/cartSlice';
+import { logout } from '../../redux/authSlice';
 import '../CSS/styles.css'
-
 import SearchOverlay from './SearchOverlay';
 
 const Navbr = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const totalQuantity = useSelector(state => state.cart.totalQuantity);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        dispatch(logout());
+        navigate('/login');
+    };
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark primary-color-bg py-3 shadow sticky-top" data-aos="fade-down">
@@ -43,13 +50,16 @@ const Navbr = () => {
                         <div className="icon-link pointer text-white" onClick={() => setIsSearchOpen(true)}>
                             <FaSearch size={20} className='icon-hover' />
                         </div>
-                        <div className="icon-link pointer position-relative text-white me-3" onClick={() => dispatch(openCart())}>
+                        <div className="icon-link pointer position-relative text-white" onClick={() => dispatch(openCart())}>
                             <span className='text-white'>
                                 <FaShoppingCart size={20} className='icon-hover' />
                                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark" style={{ fontSize: '10px' }}>
                                     {totalQuantity}
                                 </span>
                             </span>
+                        </div>
+                        <div className="icon-link pointer text-white" onClick={handleLogout} title="Logout">
+                            <FaSignOutAlt size={20} className='icon-hover' />
                         </div>
                     </div>
                 </div>

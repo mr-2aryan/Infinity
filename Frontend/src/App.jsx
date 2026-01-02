@@ -5,6 +5,8 @@ import 'aos/dist/aos.css';
 import Layout from './components/JSX/Layout'
 import LoadingOverlay from './components/JSX/LoadingOverlay';
 import SmoothScroll from './components/JSX/SmoothScroll';
+import ProtectedRoute from './components/JSX/ProtectedRoute';
+import ToastNotification from './components/JSX/ToastNotification';
 const Home = React.lazy(() => import('./Pages/Home'));
 const Shop = React.lazy(() => import('./Pages/Shop'));
 const About = React.lazy(() => import('./Pages/About'));
@@ -12,6 +14,8 @@ const View = React.lazy(() => import('./Pages/View'));
 const Contact = React.lazy(() => import('./Pages/Contact'));
 const Checkout = React.lazy(() => import('./Pages/Checkout'));
 const Confirmation = React.lazy(() => import('./Pages/Confirmation'));
+import Login from './Pages/Login';
+
 import { Helmet } from 'react-helmet-async';
 
 function App() {
@@ -25,18 +29,23 @@ function App() {
 
   return (
     <Suspense fallback={<LoadingOverlay />}>
+
       <SmoothScroll>
         <Helmet />
+        <ToastNotification />
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/confirmation" element={<Confirmation />} />
-            <Route path="/view/:id" element={<View />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/confirmation" element={<Confirmation />} />
+              <Route path="/view/:id" element={<View />} />
+            </Route>
           </Route>
+          <Route path="/login" element={<Login />} />
         </Routes>
       </SmoothScroll>
     </Suspense>

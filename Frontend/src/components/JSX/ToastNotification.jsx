@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { hideNotification } from '../../redux/cartSlice';
-import { FaCheckCircle, FaShoppingCart } from 'react-icons/fa';
+import { FaCheckCircle, FaShoppingCart, FaTimesCircle } from 'react-icons/fa';
 
 const ToastNotification = () => {
     const notification = useSelector(state => state.cart.notification);
@@ -19,6 +19,7 @@ const ToastNotification = () => {
     if (!notification) return null;
 
     const isSuccess = notification.toLowerCase().includes('success') || notification.toLowerCase().includes('added');
+    const isError = notification.toLowerCase().includes('invalid') || notification.toLowerCase().includes('error') || notification.toLowerCase().includes('failed');
 
     return (
         <div style={{
@@ -38,7 +39,9 @@ const ToastNotification = () => {
             fontWeight: '500',
             animation: 'fadeIn 0.3s ease-out'
         }}>
-            {isSuccess ? <FaCheckCircle className="text-warning" size={20} /> : <FaShoppingCart className="text-warning" size={18} />}
+            {isSuccess ? <FaCheckCircle className="text-warning" size={20} /> :
+                isError ? <FaTimesCircle className="text-danger" size={20} /> :
+                    <FaShoppingCart className="text-warning" size={18} />}
             <span>{notification}</span>
             <style>
                 {`

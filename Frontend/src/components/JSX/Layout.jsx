@@ -3,7 +3,6 @@ import { Outlet, useLocation } from 'react-router-dom'
 import Navbr from './Navbr'
 import Footer from './Footer'
 import CartSidebar from './CartSidebar'
-import ToastNotification from './ToastNotification'
 import { FaWhatsapp } from 'react-icons/fa'
 
 const Layout = () => {
@@ -13,9 +12,6 @@ const Layout = () => {
         <>
             <Navbr key={location.pathname} />
             <CartSidebar />
-            <ToastNotification />
-
-            {/* WhatsApp Float Button */}
             <a
                 href="https://wa.me/923005246223"
                 target="_blank"
