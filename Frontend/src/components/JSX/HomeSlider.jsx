@@ -36,7 +36,14 @@ const HomeSlider = () => {
                     className={`position-absolute w-100 h-100 slider-image-wrapper ${index === currentSlide ? 'active' : ''}`}
                     style={{ opacity: index === currentSlide ? 1 : 0, transition: 'opacity 0.5s ease-in-out' }}
                 >
-                    <img src={slide.image} alt={`Slide ${index + 1}`} className='w-100 h-100 object-fit-cover' style={{ objectPosition: 'bottom' }} />
+                    <img
+                        src={slide.image}
+                        alt={`Slide ${index + 1}`}
+                        className='w-100 h-100 object-fit-cover'
+                        style={{ objectPosition: 'bottom' }}
+                        fetchpriority={index === 0 ? "high" : "low"}
+                        loading={index === 0 ? "eager" : "lazy"}
+                    />
                 </div>
             ))}
 

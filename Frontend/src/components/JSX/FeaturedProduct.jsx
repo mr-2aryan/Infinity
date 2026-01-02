@@ -81,12 +81,12 @@ const FeaturedProduct = () => {
             <div className='row align-items-center justify-content-center'>
                 <div className='col-lg-4 col-12'>
                     <div className='imag-bg'>
-                        <img src={Accent} alt="" className='img-fluid w-100' />
+                        <img src={Accent} alt="Elegant Accent Chair" className='img-fluid w-100' loading="lazy" />
                     </div>
                 </div>
                 <div className='col-lg-4 col-12'>
                     <div className='imag-bg'>
-                        <img src={Accent2} alt="" className='img-fluid w-100' />
+                        <img src={Accent2} alt="Elegant Accent Chair Side View" className='img-fluid w-100' loading="lazy" />
                     </div>
                 </div>
                 <div className='col-lg-4 col-12'>
