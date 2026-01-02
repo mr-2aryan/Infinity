@@ -58,7 +58,7 @@ const Navbr = () => {
                                 </span>
                             </span>
                         </div>
-                        <div className="icon-link pointer text-white" onClick={handleLogout} title="Logout">
+                        <div className="icon-link pointer text-white ms-3" onClick={handleLogout} title="Logout">
                             <FaSignOutAlt size={20} className='icon-hover' />
                         </div>
                     </div>
